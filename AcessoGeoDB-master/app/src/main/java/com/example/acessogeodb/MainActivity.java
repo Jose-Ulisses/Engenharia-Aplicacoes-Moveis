@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private Button mBotaoAdiciona;
     EditText inputText;
 
+    Panhador funcionario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,19 +39,36 @@ public class MainActivity extends AppCompatActivity {
                 mAdicionar.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View view) {
                         setContentView(R.layout.adicionar_panhadores);
+
+                        mBotaoAdiciona = (Button) findViewById(R.id.botao_adiciona);
+                        mBotaoAdiciona.setOnClickListener(new View.OnClickListener(){
+                            public void onClick(View view){
+
+                                inputText = (EditText) findViewById(R.id.input_nome);
+                                String nomeInput = inputText.getText().toString();
+
+                                inputText = (EditText) findViewById(R.id.input_cpf);
+                                String cpfInput = inputText.getText().toString();
+
+                                inputText = (EditText) findViewById(R.id.input_numero);
+                                String numeroInput = inputText.getText().toString();
+
+                                inputText = (EditText) findViewById(R.id.input_chave_pix);
+                                String chavePixInput = inputText.getText().toString();
+
+                                adicionaPanhador(nomeInput, cpfInput, numeroInput, chavePixInput);
+                            }
+                        });
                     }
                 });
-                mBotaoAdiciona = (Button) findViewById(R.id.botao_adiciona);
-
-
-
-                inputText = (EditText) findViewById(R.id.input_nome);
-                inputText = (EditText) findViewById(R.id.input_cpf);
-
-                System.out.println(inputText);
-
             }
         });
 
     }
+    private void adicionaPanhador(String nome, String CPF, String numero, String chavePix){
+        PanhadorDB panhadorDB = new PanhadorDB(this);
+
+        panhadorDB.addPanhador(nome, CPF, numero, chavePix);
+    }
+
 }

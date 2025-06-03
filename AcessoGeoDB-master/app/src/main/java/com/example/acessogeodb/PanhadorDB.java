@@ -16,13 +16,17 @@ public class PanhadorDB {
         mDatabase = new DbHelper(mContext).getWritableDatabase();
     }
 
-    public void addQuestao(String nome, String cpf, String numero, String chave_pix){
+    public void addPanhador(String nome, String cpf, String numero, String chave_pix){
         ContentValues valores_panhador = new ContentValues();
+
+        System.out.println("passou!");
 
         valores_panhador.put(DbSchema.PanhadoresTbl.Cols.NOME, nome);
         valores_panhador.put(DbSchema.PanhadoresTbl.Cols.CPF, cpf);
         valores_panhador.put(DbSchema.PanhadoresTbl.Cols.NUMERO, numero);
         valores_panhador.put(DbSchema.PanhadoresTbl.Cols.CHAVE_PIX, chave_pix);
+
+        mDatabase.insert(DbSchema.PanhadoresTbl.NOME_TBL, null, valores_panhador);
     }
 
     public Cursor queryPanhador(String clausulaWhere, String[] argsWhere){
