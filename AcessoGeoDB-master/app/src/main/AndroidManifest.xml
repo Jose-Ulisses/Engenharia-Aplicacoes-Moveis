@@ -9,6 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AcessoGeoDB">
+
+        <activity
+            android:name=".PanhadoresActivitys.InformacoesPanhadorActivity"
+            android:exported="false"
+            android:parentActivityName=".PanhadoresActivitys.TodosPanhadoresActivity" />
+
+        <activity
+            android:name=".PanhadoresActivitys.TodosPanhadoresActivity"
+            android:exported="false"
+            android:parentActivityName=".PanhadoresActivitys.PanhadoresActivity" />
+
+        <activity
+            android:name=".PanhadoresActivitys.AdicionarPanhadoresActivity"
+            android:exported="false"
+            android:parentActivityName=".PanhadoresActivitys.PanhadoresActivity" />
+
+        <activity
+            android:name=".PanhadoresActivitys.PanhadoresActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
