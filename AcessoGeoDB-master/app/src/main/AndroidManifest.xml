@@ -11,6 +11,26 @@
         android:theme="@style/Theme.AcessoGeoDB">
 
         <activity
+            android:name=".ColheitaActivitys.TodasLavourasActivity"
+            android:exported="false"
+            android:parentActivityName=".ColheitaActivitys.LavouraActivity" />
+
+        <activity
+            android:name=".ColheitaActivitys.AdicionarLavouraActivity"
+            android:exported="false"
+            android:parentActivityName=".ColheitaActivitys.LavouraActivity" />
+
+        <activity
+            android:name=".ColheitaActivitys.LavouraActivity"
+            android:exported="false"
+            android:parentActivityName=".ColheitaActivitys.ColheitaActivity" />
+
+        <activity
+            android:name=".ColheitaActivitys.ColheitaActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <activity
             android:name=".PanhadoresActivitys.InformacoesPanhadorActivity"
             android:exported="false"
             android:parentActivityName=".PanhadoresActivitys.TodosPanhadoresActivity" />

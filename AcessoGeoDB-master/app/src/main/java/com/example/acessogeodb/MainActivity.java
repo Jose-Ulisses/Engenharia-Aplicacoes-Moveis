@@ -6,21 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
+import com.example.acessogeodb.ColheitaActivitys.ColheitaActivity;
 import com.example.acessogeodb.PanhadoresActivitys.PanhadoresActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
     private Button mBotaoColheita;
     private Button mBotaoPanhadores;
-    private Button mTodosPanhadores;
-    private Button mAdicionar;
-    private Button mRemover;
-    private Button mBotaoAdiciona;
-    EditText inputText;
-
-    Panhador funcionario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +22,8 @@ public class MainActivity extends AppCompatActivity {
         this.mBotaoColheita = (Button) findViewById(R.id.botao_colheita);
         this.mBotaoColheita.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view) {
-                setContentView(R.layout.activity_colheita);
+                Intent intent = ColheitaActivity.novoIntent(MainActivity.this);
+                MainActivity.this.startActivityForResult(intent, 0);
             }
         });
 

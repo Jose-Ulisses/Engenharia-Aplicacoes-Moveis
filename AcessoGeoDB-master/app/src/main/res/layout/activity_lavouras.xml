@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".PanhadoresDbSchema$MainActivity">
+    android:orientation="vertical">
 
     <Button
-        android:id="@+id/botao_colheita"
+        android:id="@+id/botao_todas_lavouras"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="colheita" />
+        android:text="todas lavouras" />
 
     <Button
-        android:id="@+id/botao_panhadores"
+        android:id="@+id/botao_adicionar_lavoura"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="panhadores" />
-
+        android:text="adicionar lavoura" />
 </LinearLayout>

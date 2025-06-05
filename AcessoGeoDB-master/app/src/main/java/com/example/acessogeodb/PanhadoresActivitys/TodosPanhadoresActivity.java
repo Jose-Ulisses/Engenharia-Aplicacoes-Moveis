@@ -54,7 +54,7 @@ public class TodosPanhadoresActivity extends AppCompatActivity {
                     LinearLayout linearLayout = (LinearLayout) findViewById(R.id.linearLayout);
                     linearLayout.addView(mTextViewTodosPanhadores);
 
-                 cursor.moveToNext();
+                    cursor.moveToNext();
                 }
             } finally {
                 cursor.close();

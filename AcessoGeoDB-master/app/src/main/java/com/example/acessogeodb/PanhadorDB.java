@@ -7,30 +7,26 @@ import android.database.sqlite.SQLiteDatabase;
 
 public class PanhadorDB {
     private Context mContext;
-    private static Context mStaticContext;
     private SQLiteDatabase mDatabase;
 
     public PanhadorDB(Context contexto){
         mContext = contexto.getApplicationContext();
-        mStaticContext = mContext;
-        mDatabase = new DbHelper(mContext).getWritableDatabase();
+        mDatabase = new PanhadoresDbHelper(mContext).getWritableDatabase();
     }
 
     public void addPanhador(String nome, String cpf, String numero, String chave_pix){
         ContentValues valores_panhador = new ContentValues();
 
-        System.out.println("passou!");
+        valores_panhador.put(PanhadoresDbSchema.PanhadoresTbl.Cols.NOME, nome);
+        valores_panhador.put(PanhadoresDbSchema.PanhadoresTbl.Cols.CPF, cpf);
+        valores_panhador.put(PanhadoresDbSchema.PanhadoresTbl.Cols.NUMERO, numero);
+        valores_panhador.put(PanhadoresDbSchema.PanhadoresTbl.Cols.CHAVE_PIX, chave_pix);
 
-        valores_panhador.put(DbSchema.PanhadoresTbl.Cols.NOME, nome);
-        valores_panhador.put(DbSchema.PanhadoresTbl.Cols.CPF, cpf);
-        valores_panhador.put(DbSchema.PanhadoresTbl.Cols.NUMERO, numero);
-        valores_panhador.put(DbSchema.PanhadoresTbl.Cols.CHAVE_PIX, chave_pix);
-
-        mDatabase.insert(DbSchema.PanhadoresTbl.NOME_TBL, null, valores_panhador);
+        mDatabase.insert(PanhadoresDbSchema.PanhadoresTbl.NOME_TBL, null, valores_panhador);
     }
 
     public Cursor queryPanhador(String clausulaWhere, String[] argsWhere){
-        Cursor cursor = mDatabase.query(DbSchema.PanhadoresTbl.NOME_TBL,
+        Cursor cursor = mDatabase.query(PanhadoresDbSchema.PanhadoresTbl.NOME_TBL,
                 null,
                 clausulaWhere,
                 argsWhere,
@@ -40,8 +36,9 @@ public class PanhadorDB {
         );
         return cursor;
     }
+
     void deleteTbl(){
         int delete;
-        delete = mDatabase.delete(DbSchema.PanhadoresTbl.NOME_TBL, null, null);
+        delete = mDatabase.delete(PanhadoresDbSchema.PanhadoresTbl.NOME_TBL, null, null);
     }
 }

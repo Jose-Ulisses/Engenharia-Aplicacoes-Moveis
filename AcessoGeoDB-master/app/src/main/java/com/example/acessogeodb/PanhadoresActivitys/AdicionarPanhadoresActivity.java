@@ -16,9 +16,6 @@ public class AdicionarPanhadoresActivity extends AppCompatActivity {
 
     private Button mBotaoAdiciona;
     EditText inputNome, inputCpf, inputNumero, inputChavePix;
-    public AdicionarPanhadoresActivity (){
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState){

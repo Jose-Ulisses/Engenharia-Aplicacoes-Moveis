@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/input_nome_lavoura"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:ems="10"
+        android:hint="Nome da lavoura"
+        android:inputType="text"
+        android:text="" />
 
     <Button
-        android:id="@+id/botao_adicionar_colheita"
+        android:id="@+id/botao_adiciona_lavoura"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="adicionar colheita" />
-
-    <Button
-        android:id="@+id/botao_lavouras"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="lavouras" />
+        android:text="adicionar" />
 </LinearLayout>
