@@ -1,4 +1,4 @@
-package com.example.acessogeodb.ColheitaActivitys;
+package com.example.acessogeodb.ColheitaActivitys.Lavouras;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,13 +9,15 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.acessogeodb.R;
+import com.example.acessogeodb.TalhaoActivitys.AdicionarTalhaoActivity;
 
 public class LavouraActivity extends AppCompatActivity {
 
     private Button mBotaoAdicionarLavoura;
     private Button mBotaoTodasLavouras;
+    private Button mBotaoAdicionarTalhao;
 
-    protected void onCreate(Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lavouras);
 
@@ -33,6 +35,15 @@ public class LavouraActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = TodasLavourasActivity.novoIntent(LavouraActivity.this);
+                LavouraActivity.this.startActivityForResult(intent, 0);
+            }
+        });
+
+        mBotaoAdicionarTalhao = (Button) findViewById(R.id.botao_adicionar_talhao);
+        mBotaoAdicionarTalhao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AdicionarTalhaoActivity.novoIntent(LavouraActivity.this);
                 LavouraActivity.this.startActivityForResult(intent, 0);
             }
         });

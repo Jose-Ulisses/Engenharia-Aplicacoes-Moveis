@@ -16,7 +16,8 @@ public class TalhoesDbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE " + TalhoesDbSchema.TalhoesTbl.NOME_TBL + "(" +
                 "_id integer PRIMARY KEY autoincrement," +
-                TalhoesDbSchema.TalhoesTbl.Cols.NOME + "," +
+                TalhoesDbSchema.TalhoesTbl.Cols.NOME_LAVOURA + "," +
+                TalhoesDbSchema.TalhoesTbl.Cols.NOME_TALHAO + "," +
                 TalhoesDbSchema.TalhoesTbl.Cols.PRECO + "," +
                 TalhoesDbSchema.TalhoesTbl.Cols.TOTAL + ")"
         );

@@ -11,17 +11,22 @@
         android:theme="@style/Theme.AcessoGeoDB">
 
         <activity
-            android:name=".ColheitaActivitys.TodasLavourasActivity"
+            android:name=".TalhaoActivitys.AdicionarTalhaoActivity"
             android:exported="false"
-            android:parentActivityName=".ColheitaActivitys.LavouraActivity" />
+            android:parentActivityName=".ColheitaActivitys.Lavouras.LavouraActivity" />
 
         <activity
-            android:name=".ColheitaActivitys.AdicionarLavouraActivity"
+            android:name=".ColheitaActivitys.Lavouras.TodasLavourasActivity"
             android:exported="false"
-            android:parentActivityName=".ColheitaActivitys.LavouraActivity" />
+            android:parentActivityName=".ColheitaActivitys.Lavouras.LavouraActivity" />
 
         <activity
-            android:name=".ColheitaActivitys.LavouraActivity"
+            android:name=".ColheitaActivitys.Lavouras.AdicionarLavouraActivity"
+            android:exported="false"
+            android:parentActivityName=".ColheitaActivitys.Lavouras.LavouraActivity" />
+
+        <activity
+            android:name=".ColheitaActivitys.Lavouras.LavouraActivity"
             android:exported="false"
             android:parentActivityName=".ColheitaActivitys.ColheitaActivity" />
 

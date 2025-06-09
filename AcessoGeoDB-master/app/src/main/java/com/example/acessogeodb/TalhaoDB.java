@@ -14,12 +14,12 @@ public class TalhaoDB {
         mDatabase = new TalhoesDbHelper(mContext).getWritableDatabase();
     }
 
-    public void addTalhao(String nome, float preco, float total){
+    public void addTalhao(String nomeLavoura, String nomeTalhao, double preco){
         ContentValues valores_talhao = new ContentValues();
 
-        valores_talhao.put(TalhoesDbSchema.TalhoesTbl.Cols.NOME, nome);
+        valores_talhao.put(TalhoesDbSchema.TalhoesTbl.Cols.NOME_LAVOURA, nomeLavoura);
+        valores_talhao.put(TalhoesDbSchema.TalhoesTbl.Cols.NOME_TALHAO, nomeTalhao);
         valores_talhao.put(TalhoesDbSchema.TalhoesTbl.Cols.PRECO, preco);
-        valores_talhao.put(TalhoesDbSchema.TalhoesTbl.Cols.TOTAL, total);
 
         mDatabase.insert(TalhoesDbSchema.TalhoesTbl.NOME_TBL, null, valores_talhao);
     }

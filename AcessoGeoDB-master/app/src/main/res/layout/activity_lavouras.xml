@@ -15,4 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="adicionar lavoura" />
+
+    <Button
+        android:id="@+id/botao_adicionar_talhao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="adicionar talhão" />
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.acessogeodb.ColheitaActivitys;
+package com.example.acessogeodb.ColheitaActivitys.Lavouras;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,8 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.acessogeodb.LavouraDB;
-import com.example.acessogeodb.PanhadoresActivitys.InformacoesPanhadorActivity;
-import com.example.acessogeodb.PanhadoresActivitys.TodosPanhadoresActivity;
 import com.example.acessogeodb.R;
 import androidx.appcompat.app.AppCompatActivity;
 
