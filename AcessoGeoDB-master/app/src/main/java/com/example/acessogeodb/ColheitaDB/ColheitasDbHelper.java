@@ -1,8 +1,10 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.ColheitaDB;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.acessogeodb.PanhadorDB.PanhadoresDbSchema;
 
 public class ColheitasDbHelper extends SQLiteOpenHelper {
     private static final int VERSAO = 1;

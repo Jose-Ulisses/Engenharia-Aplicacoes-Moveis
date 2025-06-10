@@ -1,4 +1,4 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.LavouraDB;
 
 public class LavourasDbSchema {
     public static final class LavourasTbl{

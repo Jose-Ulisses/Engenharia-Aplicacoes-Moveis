@@ -1,4 +1,4 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.PanhadorDB;
 
 public class PanhadoresDbSchema {
     public static final class PanhadoresTbl{

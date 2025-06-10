@@ -16,4 +16,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="lavouras" />
+
+    <Button
+        android:id="@+id/botao_colheitasAnteriores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="colheitas anteriores" />
+
+    <Button
+        android:id="@+id/botao_deletaTblColheita"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="deletar colheita" />
 </LinearLayout>

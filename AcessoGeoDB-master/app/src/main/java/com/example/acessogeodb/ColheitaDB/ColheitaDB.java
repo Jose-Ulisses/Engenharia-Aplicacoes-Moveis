@@ -1,4 +1,4 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.ColheitaDB;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -38,8 +38,8 @@ public class ColheitaDB{
         return cursor;
     }
 
-    void deleteTbl(){
+    public void deleteTbl(){
         int delete;
-        delete = mDatabase.delete(PanhadoresDbSchema.PanhadoresTbl.NOME_TBL, null, null);
+        delete = mDatabase.delete(ColheitasDbSchema.ColheitasTbl.NOME_TBL, null, null);
     }
 }

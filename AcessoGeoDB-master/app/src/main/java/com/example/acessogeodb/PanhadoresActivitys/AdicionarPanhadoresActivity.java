@@ -9,7 +9,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.acessogeodb.PanhadorDB;
+import com.example.acessogeodb.PanhadorDB.PanhadorDB;
 import com.example.acessogeodb.R;
 
 public class AdicionarPanhadoresActivity extends AppCompatActivity {

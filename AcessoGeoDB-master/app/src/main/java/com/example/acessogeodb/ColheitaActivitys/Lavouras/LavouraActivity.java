@@ -10,12 +10,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.acessogeodb.R;
 import com.example.acessogeodb.TalhaoActivitys.AdicionarTalhaoActivity;
+import com.example.acessogeodb.TalhaoDB.TalhaoDB;
 
 public class LavouraActivity extends AppCompatActivity {
 
     private Button mBotaoAdicionarLavoura;
     private Button mBotaoTodasLavouras;
     private Button mBotaoAdicionarTalhao;
+    private Button mBotaoDeletaTabelas;
+
+    TalhaoDB mtalhaodb;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,15 @@ public class LavouraActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = AdicionarTalhaoActivity.novoIntent(LavouraActivity.this);
                 LavouraActivity.this.startActivityForResult(intent, 0);
+            }
+        });
+
+        mBotaoDeletaTabelas = (Button) findViewById(R.id.botao_deletaTbl);
+        mBotaoDeletaTabelas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mtalhaodb = new TalhaoDB(getBaseContext());
+                mtalhaodb.deleteTbl();
             }
         });
     }

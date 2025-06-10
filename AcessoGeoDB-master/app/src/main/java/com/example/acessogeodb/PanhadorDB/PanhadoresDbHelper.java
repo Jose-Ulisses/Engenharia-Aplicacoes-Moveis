@@ -1,4 +1,4 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.PanhadorDB;
 
 import android.content.Context;
 import android.database.Cursor;

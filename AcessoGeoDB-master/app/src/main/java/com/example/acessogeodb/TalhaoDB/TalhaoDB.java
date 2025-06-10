@@ -1,4 +1,4 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.TalhaoDB;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -36,7 +36,7 @@ public class TalhaoDB {
         return cursor;
     }
 
-    void deleteTbl(){
+    public void deleteTbl(){
         int delete;
         delete = mDatabase.delete(TalhoesDbSchema.TalhoesTbl.NOME_TBL, null, null);
     }

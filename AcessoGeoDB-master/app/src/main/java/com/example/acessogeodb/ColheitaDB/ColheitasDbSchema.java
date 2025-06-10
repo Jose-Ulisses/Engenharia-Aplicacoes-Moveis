@@ -1,4 +1,4 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.ColheitaDB;
 
 public class ColheitasDbSchema {
     public static final class ColheitasTbl{

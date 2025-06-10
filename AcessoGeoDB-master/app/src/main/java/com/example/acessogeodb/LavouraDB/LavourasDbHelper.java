@@ -1,5 +1,6 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.LavouraDB;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -37,6 +38,27 @@ public class LavourasDbHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return nomes;
+    }
+
+    public double getTotalLavoura(String nomeLavoura){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT total FROM Lavouras WHERE nome = ?", new String[]{nomeLavoura});
+        double total = 0.0;
+
+        if(cursor.moveToFirst()){
+            total = cursor.getDouble(0);
+        }
+        cursor.close();
+        return total;
+    }
+
+    public boolean atualizarTotalLavoura(String nomeLavoura, double novoTotal){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("total", novoTotal);
+
+        int linhasAfetadas = db.update("Lavouras", values, "nome = ?", new String[]{nomeLavoura});
+        return linhasAfetadas > 0;
     }
 
     @Override

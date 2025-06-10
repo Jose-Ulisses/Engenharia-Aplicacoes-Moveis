@@ -1,4 +1,4 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.TalhaoDB;
 
 public class TalhoesDbSchema {
     public static final class TalhoesTbl{

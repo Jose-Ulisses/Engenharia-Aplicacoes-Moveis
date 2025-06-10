@@ -1,12 +1,12 @@
-package com.example.acessogeodb;
+package com.example.acessogeodb.TalhaoDB;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class TalhoesDbHelper extends SQLiteOpenHelper {
     private static final int VERSAO = 1;
@@ -31,7 +31,6 @@ public class TalhoesDbHelper extends SQLiteOpenHelper {
         List<String> nomes = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT nomeTalhao FROM Talhoes WHERE nomeLavoura = ?", new String[]{lavoura});
-        System.out.println("entrou!!");
         if(cursor.moveToFirst()){
             do{
                 nomes.add(cursor.getString(0));
@@ -39,6 +38,27 @@ public class TalhoesDbHelper extends SQLiteOpenHelper {
         }
         cursor.close();
         return nomes;
+    }
+
+    public double getTotalTalhao(String nomeTalhao){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT total FROM Talhoes WHERE nomeTalhao = ?", new String[]{nomeTalhao});
+        double total = 0.0;
+
+        if(cursor.moveToFirst()){
+            total = cursor.getDouble(0);
+        }
+        cursor.close();
+        return total;
+    }
+
+    public boolean atualizarTotalTalhao(String nomeTalhao, double novoTotal){
+        SQLiteDatabase db = this.getReadableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("total", novoTotal);
+
+        int linhasAfetadas = db.update("Talhoes", values, "nomeTalhao = ?", new String[]{nomeTalhao});
+        return linhasAfetadas > 0;
     }
 
     @Override

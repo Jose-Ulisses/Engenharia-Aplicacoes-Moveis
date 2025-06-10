@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.acessogeodb.PanhadorDB;
+import com.example.acessogeodb.PanhadorDB.PanhadorDB;
 import com.example.acessogeodb.R;
 
 import java.util.Objects;
@@ -20,7 +20,6 @@ public class InformacoesPanhadorActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_informacoes_panhador);
 
         String nome = getIntent().getStringExtra("nome_panhador");
@@ -34,9 +33,6 @@ public class InformacoesPanhadorActivity extends AppCompatActivity {
                 while(!cursor.isAfterLast()) {
                     @SuppressLint("Range") String nome_panhador = cursor.getString(cursor.getColumnIndex("nome"));
 
-                    System.out.println(nome);
-                    System.out.println(nome_panhador);
-
                     if (Objects.equals(nome_panhador, nome)) {
                         @SuppressLint("Range") String cpf_panhador = cursor.getString(cursor.getColumnIndex("cpf"));
                         @SuppressLint("Range") String numero_panhador = cursor.getString(cursor.getColumnIndex("numero"));
@@ -49,16 +45,12 @@ public class InformacoesPanhadorActivity extends AppCompatActivity {
                                         "CPF: " + cpf_panhador + "\n" +
                                         "Número: " + numero_panhador + "\n" +
                                         "Chave Pix: " + chavePix_panhador);
-                        System.out.println(cpf_panhador);
-                        System.out.println(numero_panhador);
-                        System.out.println(chavePix_panhador);
                         cursor.moveToNext();
                     } else {
                         cursor.moveToNext();
                     }
                 }
             } finally {
-                System.out.println("Passouuuuuuuuu!!");
                 cursor.close();
             }
 

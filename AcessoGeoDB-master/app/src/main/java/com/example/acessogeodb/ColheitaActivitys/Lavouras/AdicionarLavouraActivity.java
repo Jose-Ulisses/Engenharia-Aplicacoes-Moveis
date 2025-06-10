@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.acessogeodb.LavouraDB;
+import com.example.acessogeodb.LavouraDB.LavouraDB;
 import com.example.acessogeodb.R;
 import androidx.appcompat.app.AppCompatActivity;
 
