@@ -24,8 +24,9 @@ public class ColheitaActivity extends AppCompatActivity {
         mBotaoAdicionarColheita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = LavouraActivity.novoIntent(ColheitaActivity.this);
+                Intent intent = AdicionarColheitaActivity.novoIntent(ColheitaActivity.this);
                 ColheitaActivity.this.startActivityForResult(intent, 0);
+
             }
         });
 
@@ -33,7 +34,7 @@ public class ColheitaActivity extends AppCompatActivity {
         mBotaoLavouras.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = AdicionarColheitaActivity.novoIntent(ColheitaActivity.this);
+                Intent intent = LavouraActivity.novoIntent(ColheitaActivity.this);
                 ColheitaActivity.this.startActivityForResult(intent, 0);
             }
         });

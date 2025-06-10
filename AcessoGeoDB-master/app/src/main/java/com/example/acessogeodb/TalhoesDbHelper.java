@@ -1,8 +1,12 @@
 package com.example.acessogeodb;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class TalhoesDbHelper extends SQLiteOpenHelper {
     private static final int VERSAO = 1;
@@ -21,6 +25,20 @@ public class TalhoesDbHelper extends SQLiteOpenHelper {
                 TalhoesDbSchema.TalhoesTbl.Cols.PRECO + "," +
                 TalhoesDbSchema.TalhoesTbl.Cols.TOTAL + ")"
         );
+    }
+
+    public List<String> getNomeDosTalhoes(String lavoura) {
+        List<String> nomes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT nomeTalhao FROM Talhoes WHERE nomeLavoura = ?", new String[]{lavoura});
+        System.out.println("entrou!!");
+        if(cursor.moveToFirst()){
+            do{
+                nomes.add(cursor.getString(0));
+            } while(cursor.moveToNext());
+        }
+        cursor.close();
+        return nomes;
     }
 
     @Override

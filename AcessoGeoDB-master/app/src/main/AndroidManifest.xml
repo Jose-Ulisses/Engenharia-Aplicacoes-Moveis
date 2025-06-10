@@ -11,6 +11,11 @@
         android:theme="@style/Theme.AcessoGeoDB">
 
         <activity
+            android:name=".ColheitaActivitys.AdicionarColheitaActivity"
+            android:exported="false"
+            android:parentActivityName=".ColheitaActivitys.ColheitaActivity" />
+
+        <activity
             android:name=".TalhaoActivitys.AdicionarTalhaoActivity"
             android:exported="false"
             android:parentActivityName=".ColheitaActivitys.Lavouras.LavouraActivity" />

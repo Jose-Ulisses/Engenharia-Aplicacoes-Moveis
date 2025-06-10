@@ -1,8 +1,11 @@
 package com.example.acessogeodb;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PanhadoresDbHelper extends SQLiteOpenHelper {
     private static final int VERSAO = 1;
@@ -21,6 +24,20 @@ public class PanhadoresDbHelper extends SQLiteOpenHelper {
                 PanhadoresDbSchema.PanhadoresTbl.Cols.NUMERO + "," +
                 PanhadoresDbSchema.PanhadoresTbl.Cols.CHAVE_PIX + ")"
         );
+    }
+
+    public List<String> getNomesDosPanhadores() {
+        List<String> nomes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT nome FROM Panhadores", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                nomes.add(cursor.getString(0));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return nomes;
     }
 
     @Override

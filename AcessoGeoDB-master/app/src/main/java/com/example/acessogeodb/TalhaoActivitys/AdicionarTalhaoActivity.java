@@ -13,11 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.acessogeodb.LavourasDbHelper;
 import com.example.acessogeodb.R;
 import com.example.acessogeodb.TalhaoDB;
-
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
@@ -40,7 +38,7 @@ public class AdicionarTalhaoActivity extends AppCompatActivity {
         dbhelper = new LavourasDbHelper(this);
         List<String> item = dbhelper.getNomesDasLavouras();
 
-        adapterItems = new ArrayAdapter<>(this, R.layout.list_item, item);
+        adapterItems = new ArrayAdapter<>(this, R.layout.list_item_lavoura, item);
         autoCompleteTextView.setAdapter(adapterItems);
         autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
