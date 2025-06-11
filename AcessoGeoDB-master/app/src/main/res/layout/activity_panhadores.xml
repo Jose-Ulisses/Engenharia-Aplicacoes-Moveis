@@ -18,8 +18,8 @@
         android:text="adicionar" />
 
     <Button
-        android:id="@+id/botao_remover_panhador"
+        android:id="@+id/botao_acerto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="remover" />
+        android:text="acerto" />
 </LinearLayout>

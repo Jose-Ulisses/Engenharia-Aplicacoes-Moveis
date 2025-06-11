@@ -12,12 +12,6 @@
         android:text="adicionar colheita" />
 
     <Button
-        android:id="@+id/botao_lavouras"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="lavouras" />
-
-    <Button
         android:id="@+id/botao_colheitasAnteriores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

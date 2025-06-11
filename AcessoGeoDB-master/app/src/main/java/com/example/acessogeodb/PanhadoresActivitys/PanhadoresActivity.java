@@ -12,8 +12,7 @@ import com.example.acessogeodb.R;
 public class PanhadoresActivity extends AppCompatActivity{
     private Button mTodosPanhadores;
     private Button mBotaoAdicionar;
-    private Button mBotaoremove;
-
+    private Button mBotaoAcerto;
 
     public PanhadoresActivity(){
 
@@ -41,6 +40,14 @@ public class PanhadoresActivity extends AppCompatActivity{
             }
         });
 
+        mBotaoAcerto = (Button) findViewById(R.id.botao_acerto);
+        mBotaoAcerto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = AcertoActivity.novoIntent(PanhadoresActivity.this);
+                PanhadoresActivity.this.startActivityForResult(intent, 0);
+            }
+        });
     }
 
     public static Intent novoIntent(Context packageContext){

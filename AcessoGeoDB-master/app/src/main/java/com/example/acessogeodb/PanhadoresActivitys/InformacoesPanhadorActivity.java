@@ -53,7 +53,6 @@ public class InformacoesPanhadorActivity extends AppCompatActivity {
             } finally {
                 cursor.close();
             }
-
         }
     }
 

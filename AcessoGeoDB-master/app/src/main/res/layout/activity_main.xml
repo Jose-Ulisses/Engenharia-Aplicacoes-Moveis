@@ -14,9 +14,16 @@
         android:text="colheita" />
 
     <Button
+        android:id="@+id/botao_lavouras"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="lavouras" />
+
+    <Button
         android:id="@+id/botao_panhadores"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="panhadores" />
+
 
 </LinearLayout>

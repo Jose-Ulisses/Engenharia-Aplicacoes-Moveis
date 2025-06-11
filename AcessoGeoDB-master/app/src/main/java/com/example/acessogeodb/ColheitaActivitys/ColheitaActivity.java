@@ -15,7 +15,6 @@ import com.example.acessogeodb.R;
 public class ColheitaActivity extends AppCompatActivity {
 
     private Button mBotaoAdicionarColheita;
-    private Button mBotaoLavouras;
     private Button mBotaoColheitasAnteriores;
     private Button mBotaoDeletaColheita;
 
@@ -30,15 +29,6 @@ public class ColheitaActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = AdicionarColheitaActivity.novoIntent(ColheitaActivity.this);
-                ColheitaActivity.this.startActivityForResult(intent, 0);
-            }
-        });
-
-        mBotaoLavouras = (Button) findViewById(R.id.botao_lavouras);
-        mBotaoLavouras.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = LavouraActivity.novoIntent(ColheitaActivity.this);
                 ColheitaActivity.this.startActivityForResult(intent, 0);
             }
         });

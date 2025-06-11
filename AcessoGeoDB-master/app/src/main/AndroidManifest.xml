@@ -38,7 +38,7 @@
         <activity
             android:name=".ColheitaActivitys.Lavouras.LavouraActivity"
             android:exported="false"
-            android:parentActivityName=".ColheitaActivitys.ColheitaActivity" />
+            android:parentActivityName=".MainActivity" />
 
         <activity
             android:name=".ColheitaActivitys.AdicionarColheitaActivity"
@@ -49,6 +49,16 @@
             android:name=".ColheitaActivitys.ColheitaActivity"
             android:exported="false"
             android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".PanhadoresActivitys.InformacoesAcertoActivity"
+            android:exported="false"
+            android:parentActivityName=".PanhadoresActivitys.AcertoActivity" />
+
+        <activity
+            android:name=".PanhadoresActivitys.AcertoActivity"
+            android:exported="false"
+            android:parentActivityName=".PanhadoresActivitys.PanhadoresActivity" />
 
         <activity
             android:name=".PanhadoresActivitys.InformacoesPanhadorActivity"
