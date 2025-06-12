@@ -4,11 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.acessogeodb.ColheitaDB.ColheitaDB;
 import com.example.acessogeodb.PanhadorDB.PanhadoresDbHelper;
 import com.example.acessogeodb.R;
-
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -17,10 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.example.acessogeodb.LavouraDB.LavourasDbHelper;
 import com.example.acessogeodb.TalhaoDB.TalhoesDbHelper;
-
 import java.util.Calendar;
 import java.util.List;
 
@@ -172,7 +168,6 @@ public class AdicionarColheitaActivity extends AppCompatActivity {
         ColheitaDB colheitaDb = new ColheitaDB(this);
         colheitaDb.addColheita(lavoura, talhao, panhador, quant, data);
     }
-
 
     public static Intent novoIntent(Context packageContext){
         Intent intent = new Intent(packageContext, AdicionarColheitaActivity.class);

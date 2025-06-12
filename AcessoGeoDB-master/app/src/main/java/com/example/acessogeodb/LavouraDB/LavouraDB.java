@@ -16,9 +16,7 @@ public class LavouraDB {
 
     public void addLavoura(String nome){
         ContentValues valores_lavoura = new ContentValues();
-
         valores_lavoura.put(LavourasDbSchema.LavourasTbl.Cols.NOME, nome);
-
         mDatabase.insert(LavourasDbSchema.LavourasTbl.NOME_TBL, null, valores_lavoura);
     }
 

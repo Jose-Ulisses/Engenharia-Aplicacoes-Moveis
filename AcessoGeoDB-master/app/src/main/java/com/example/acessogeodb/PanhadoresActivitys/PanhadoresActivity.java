@@ -5,23 +5,17 @@ import android.view.View;
 import android.widget.Button;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.acessogeodb.R;
-
 
 public class PanhadoresActivity extends AppCompatActivity{
     private Button mTodosPanhadores;
     private Button mBotaoAdicionar;
     private Button mBotaoAcerto;
 
-    public PanhadoresActivity(){
-
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
-        this.setContentView(R.layout.activity_panhadores);
+        setContentView(R.layout.activity_panhadores);
 
         mBotaoAdicionar = (Button) findViewById(R.id.botao_adicionar_panhador);
         mBotaoAdicionar.setOnClickListener(new View.OnClickListener(){
@@ -54,5 +48,4 @@ public class PanhadoresActivity extends AppCompatActivity{
         Intent intent = new Intent(packageContext, PanhadoresActivity.class);
         return intent;
     }
-
 }

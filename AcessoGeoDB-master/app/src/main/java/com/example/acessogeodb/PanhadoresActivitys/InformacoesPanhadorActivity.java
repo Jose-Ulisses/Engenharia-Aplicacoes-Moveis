@@ -7,10 +7,8 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.acessogeodb.PanhadorDB.PanhadorDB;
 import com.example.acessogeodb.R;
-
 import java.util.Objects;
 
 public class InformacoesPanhadorActivity extends AppCompatActivity {
@@ -26,7 +24,6 @@ public class InformacoesPanhadorActivity extends AppCompatActivity {
 
         InformacoesPanhadorActivity.this.mPanhadorDb = new PanhadorDB(InformacoesPanhadorActivity.this.getBaseContext());
         Cursor cursor = InformacoesPanhadorActivity.this.mPanhadorDb.queryPanhador((String)null, (String[])null);
-
         if(cursor != null){
             try{
                 cursor.moveToFirst();

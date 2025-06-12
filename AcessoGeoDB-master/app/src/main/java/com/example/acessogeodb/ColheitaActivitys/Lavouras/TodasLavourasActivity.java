@@ -8,13 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.example.acessogeodb.LavouraDB.LavouraDB;
 import com.example.acessogeodb.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class TodasLavourasActivity extends AppCompatActivity {
-
     LavouraDB mLavouraDb;
     private TextView mTextViewTodasLavouras;
 
@@ -27,7 +25,6 @@ public class TodasLavourasActivity extends AppCompatActivity {
         if (cursor != null) {
             try {
                 cursor.moveToFirst();
-
                 while (!cursor.isAfterLast()) {
                     @SuppressLint("Range") String nomeLavoura = cursor.getString(cursor.getColumnIndex("nome"));
 

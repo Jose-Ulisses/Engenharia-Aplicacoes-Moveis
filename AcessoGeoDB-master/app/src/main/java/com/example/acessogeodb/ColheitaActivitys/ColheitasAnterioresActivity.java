@@ -7,9 +7,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.acessogeodb.ColheitaDB.ColheitaDB;
 import com.example.acessogeodb.R;
 

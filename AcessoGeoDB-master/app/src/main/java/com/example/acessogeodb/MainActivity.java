@@ -1,12 +1,10 @@
 package com.example.acessogeodb;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.example.acessogeodb.ColheitaActivitys.ColheitaActivity;
 import com.example.acessogeodb.ColheitaActivitys.Lavouras.LavouraActivity;
 import com.example.acessogeodb.PanhadoresActivitys.PanhadoresActivity;

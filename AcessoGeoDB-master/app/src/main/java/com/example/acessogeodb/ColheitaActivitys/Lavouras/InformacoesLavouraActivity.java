@@ -7,13 +7,10 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.acessogeodb.LavouraDB.LavouraDB;
 import com.example.acessogeodb.R;
 import com.example.acessogeodb.TalhaoDB.TalhaoDB;
-
 import java.util.Objects;
 
 public class InformacoesLavouraActivity extends AppCompatActivity {

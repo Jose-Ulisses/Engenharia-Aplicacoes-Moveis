@@ -6,19 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.example.acessogeodb.LavouraDB.LavouraDB;
 import com.example.acessogeodb.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AdicionarLavouraActivity extends AppCompatActivity {
-
     private Button mBotaoAdiciona;
     EditText inputNome;
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_adicionar_lavoura);
 
         mBotaoAdiciona = (Button) findViewById(R.id.botao_adiciona_lavoura);
@@ -41,5 +38,4 @@ public class AdicionarLavouraActivity extends AppCompatActivity {
         Intent intent = new Intent(packageContext, AdicionarLavouraActivity.class);
         return intent;
     }
-
 }

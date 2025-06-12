@@ -14,7 +14,6 @@ import com.example.acessogeodb.PanhadorDB.PanhadorDB;
 import com.example.acessogeodb.R;
 
 public class TodosPanhadoresActivity extends AppCompatActivity {
-
     PanhadorDB mPanhadorDb;
     private TextView mTextViewTodosPanhadores;
 
@@ -22,7 +21,6 @@ public class TodosPanhadoresActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.activity_todos_panhadores);
-
 
         TodosPanhadoresActivity.this.mPanhadorDb = new PanhadorDB(TodosPanhadoresActivity.this.getBaseContext());
         Cursor cursor = TodosPanhadoresActivity.this.mPanhadorDb.queryPanhador((String)null, (String[])null);
@@ -61,7 +59,6 @@ public class TodosPanhadoresActivity extends AppCompatActivity {
             }
         }
     }
-
 
     public static Intent novoIntent(Context packageContext){
         Intent intent = new Intent(packageContext, TodosPanhadoresActivity.class);
