@@ -14,7 +14,7 @@ public class CompromissosDB {
         mDatabase = new CompromissosDBHelper(mContext).getWritableDatabase();
     }
 
-    public void addCompromisso(int ano, int mes, int dia, int hora, int minuto, String descricao){
+    public void addCompromisso(int dia, int mes, int ano, int hora, int minuto, String descricao){
         ContentValues valores_compromisso = new ContentValues();
 
         valores_compromisso.put(CompromissosDBSchema.CompromissosTbl.Cols.DIA, dia);
@@ -30,11 +30,11 @@ public class CompromissosDB {
     public Cursor queryCompromissos(String clausulaWhere, String[] argsWhere){
         Cursor cursor = mDatabase.query(CompromissosDBSchema.CompromissosTbl.NOME_TBL,
                 null,
-                clausulaWhere,
-                argsWhere,
                 null,
                 null,
-                null
+                null,
+                null,
+                "ano ASC, mes ASC, dia ASC, hora ASC, minuto ASC"
         );
         return cursor;
     }

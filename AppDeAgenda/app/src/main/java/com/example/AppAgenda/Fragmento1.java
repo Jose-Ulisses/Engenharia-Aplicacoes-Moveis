@@ -18,9 +18,10 @@ public class Fragmento1 extends Fragment {
     private Button mBotaoOk;
     private View v;
     EditText inputDescricao;
-    int dia = -1;
-    int mes = -1;
-    int ano = -1;
+    CompromissosDB mCompromissosDb;
+
+    int dia, mes, ano;
+    int hora, minuto;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,15 +30,8 @@ public class Fragmento1 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         v = inflater.inflate(R.layout.fragmento1, container, false);
-
-        getParentFragmentManager().setFragmentResultListener("dataSelecionada", this, (key, bundle) -> {
-            dia = bundle.getInt("dia");
-            mes = bundle.getInt("mes") + 1;
-            ano = bundle.getInt("ano");
-
-            System.out.println("Data selecionada2: " + dia + "/" + mes + "/" + ano);
-        });
 
         mBotaoData = (Button) v.findViewById(R.id.botao_data);
         mBotaoData.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +39,7 @@ public class Fragmento1 extends Fragment {
             public void onClick(View view) {
                 DialogFragment fragmentoData = new FragmentoDatePicker();
                 fragmentoData.show(getParentFragmentManager(), "datePicker");
+                recebeDadosFragmentoDatePicker();
             }
         });
 
@@ -54,7 +49,7 @@ public class Fragmento1 extends Fragment {
             public void onClick(View view) {
                 DialogFragment fragmentoHora = new FragmentoTimePicker();
                 fragmentoHora.show(getParentFragmentManager(), "timePicker");
-
+                recebeDadosFragmentoTimePicker();
             }
         });
 
@@ -62,13 +57,35 @@ public class Fragmento1 extends Fragment {
         mBotaoOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.out.println("botaoOK");
                 inputDescricao = (EditText) v.findViewById(R.id.editTextDescricao);
-
-                System.out.println("Data selecionada: " + dia + "/" + mes + "/" + ano);
+                adicionaCompromissos(dia, mes, ano, hora, minuto, inputDescricao.getText().toString());
             }
         });
 
         return v;
+    }
+
+    private void recebeDadosFragmentoTimePicker(){
+        getParentFragmentManager().setFragmentResultListener("horaSelecionada", Fragmento1.this, (key, bundle) -> {
+            hora = bundle.getInt("hora");
+            minuto = bundle.getInt("minuto");
+            String horaFormatada = String.format("%02d:%02d", hora, minuto);
+            mBotaohora.setText(horaFormatada);
+        });
+    }
+
+    private void recebeDadosFragmentoDatePicker(){
+        getParentFragmentManager().setFragmentResultListener("dataSelecionada", Fragmento1.this, (key, bundle) -> {
+            dia = bundle.getInt("dia");
+            mes = bundle.getInt("mes") + 1;
+            ano = bundle.getInt("ano");
+            String dataFormatada = String.format("%02d/%02d/%04d", dia, mes, ano);
+            mBotaoData.setText(dataFormatada);
+        });
+    }
+
+    private void adicionaCompromissos(int dia, int mes, int ano, int hora, int minuto, String desc){
+        CompromissosDB compromissosDB = new CompromissosDB(getContext());
+        compromissosDB.addCompromisso(dia, mes, ano, hora, minuto, desc);
     }
 }

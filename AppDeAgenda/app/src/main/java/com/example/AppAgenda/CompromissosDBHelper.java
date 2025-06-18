@@ -12,7 +12,7 @@ public class CompromissosDBHelper extends SQLiteOpenHelper {
 
     public void onCreate(SQLiteDatabase db){
         db.execSQL("CREATE TABLE " + CompromissosDBSchema.CompromissosTbl.NOME_TBL + "(" +
-                "_id integer PRIMARY KEY autoincrement," + "," +
+                "_id integer PRIMARY KEY autoincrement," +
                 CompromissosDBSchema.CompromissosTbl.Cols.DIA + "," +
                 CompromissosDBSchema.CompromissosTbl.Cols.MES + "," +
                 CompromissosDBSchema.CompromissosTbl.Cols.ANO + "," +
