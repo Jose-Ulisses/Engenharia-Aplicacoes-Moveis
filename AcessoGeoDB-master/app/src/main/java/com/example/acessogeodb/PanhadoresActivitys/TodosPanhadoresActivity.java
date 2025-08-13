@@ -1,7 +1,6 @@
 package com.example.acessogeodb.PanhadoresActivitys;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +10,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.example.acessogeodb.PanhadorDB.PanhadorDB;
+import com.example.acessogeodb.PanhadorDB.PanhadoresDbHelper;
 import com.example.acessogeodb.R;
 
 public class TodosPanhadoresActivity extends AppCompatActivity {
@@ -24,12 +24,12 @@ public class TodosPanhadoresActivity extends AppCompatActivity {
 
         TodosPanhadoresActivity.this.mPanhadorDb = new PanhadorDB(TodosPanhadoresActivity.this.getBaseContext());
         Cursor cursor = TodosPanhadoresActivity.this.mPanhadorDb.queryPanhador((String)null, (String[])null);
+
         if(cursor != null){
             try{
                 cursor.moveToFirst();
-
                 while(!cursor.isAfterLast()) {
-                 @SuppressLint("Range") String nome_panhador = cursor.getString(cursor.getColumnIndex("nome"));
+                    String nome_panhador = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
 
                     mTextViewTodosPanhadores = new TextView(this);
                     mTextViewTodosPanhadores.setText(nome_panhador);

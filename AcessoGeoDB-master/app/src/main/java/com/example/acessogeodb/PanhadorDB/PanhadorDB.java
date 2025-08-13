@@ -37,8 +37,15 @@ public class PanhadorDB {
         return cursor;
     }
 
-    void deleteTbl(){
-        int delete;
-        delete = mDatabase.delete(PanhadoresDbSchema.PanhadoresTbl.NOME_TBL, null, null);
+    public Cursor queryNomePanhador(String[] columns, String clausulaWhere, String[] argsWhere){
+        Cursor cursor = mDatabase.query(PanhadoresDbSchema.PanhadoresTbl.NOME_TBL,
+                columns,
+                clausulaWhere,
+                argsWhere,
+                null,
+                null,
+                null
+        );
+        return cursor;
     }
 }

@@ -40,6 +40,16 @@ public class PanhadoresDbHelper extends SQLiteOpenHelper {
         return nomes;
     }
 
+    public Cursor getAllPanhadores() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + PanhadoresDbSchema.PanhadoresTbl.NOME_TBL, null);
+    }
+
+    public Cursor getPanhador(String nome) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + PanhadoresDbSchema.PanhadoresTbl.NOME_TBL + " WHERE nome" + " = ?", new String[]{nome});
+    }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int versaoAntiga, int novaVersao) {
         db.execSQL("DROP TABLE IF EXISTS " + PanhadoresDbSchema.PanhadoresTbl.NOME_TBL);

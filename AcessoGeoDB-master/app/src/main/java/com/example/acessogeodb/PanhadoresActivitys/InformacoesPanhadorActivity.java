@@ -8,11 +8,13 @@ import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.acessogeodb.PanhadorDB.PanhadorDB;
+import com.example.acessogeodb.PanhadorDB.PanhadoresDbHelper;
 import com.example.acessogeodb.R;
 import java.util.Objects;
 
 public class InformacoesPanhadorActivity extends AppCompatActivity {
     PanhadorDB mPanhadorDb;
+    PanhadoresDbHelper dbhlper = new PanhadoresDbHelper(this);
     TextView mInformacoesPanhador;
 
 
@@ -23,29 +25,27 @@ public class InformacoesPanhadorActivity extends AppCompatActivity {
         String nome = getIntent().getStringExtra("nome_panhador");
 
         InformacoesPanhadorActivity.this.mPanhadorDb = new PanhadorDB(InformacoesPanhadorActivity.this.getBaseContext());
-        Cursor cursor = InformacoesPanhadorActivity.this.mPanhadorDb.queryPanhador((String)null, (String[])null);
+        //Cursor cursor = InformacoesPanhadorActivity.this.mPanhadorDb.queryNomePanhador((String[])nome, (String)null , (String[])null);
+        Cursor cursor = dbhlper.getPanhador(nome);
+
         if(cursor != null){
             try{
                 cursor.moveToFirst();
-                while(!cursor.isAfterLast()) {
-                    @SuppressLint("Range") String nome_panhador = cursor.getString(cursor.getColumnIndex("nome"));
+                while(!cursor.isAfterLast()){
+                    String nomePanhador = cursor.getString(cursor.getColumnIndexOrThrow("nome"));
+                    String cpf = cursor.getString(cursor.getColumnIndexOrThrow("cpf"));
+                    String numero = cursor.getString(cursor.getColumnIndexOrThrow("numero"));
+                    String chavePix = cursor.getString(cursor.getColumnIndexOrThrow("chavePix"));
 
-                    if (Objects.equals(nome_panhador, nome)) {
-                        @SuppressLint("Range") String cpf_panhador = cursor.getString(cursor.getColumnIndex("cpf"));
-                        @SuppressLint("Range") String numero_panhador = cursor.getString(cursor.getColumnIndex("numero"));
-                        @SuppressLint("Range") String chavePix_panhador = cursor.getString(cursor.getColumnIndex("chavePix"));
+                    mInformacoesPanhador = (TextView) findViewById(R.id.textView_info_panhador);
+                    mInformacoesPanhador.append(
+                            "Nome: " + nomePanhador + "\n" +
+                            "CPF: " + cpf + "\n" +
+                            "Numero: " + numero + "\n" +
+                            "ChavePix: " + chavePix
+                    );
 
-
-                        mInformacoesPanhador = (TextView) findViewById(R.id.textView_info_panhador);
-                        mInformacoesPanhador.append(
-                                "Nome: " + nome_panhador + "\n" +
-                                        "CPF: " + cpf_panhador + "\n" +
-                                        "Número: " + numero_panhador + "\n" +
-                                        "Chave Pix: " + chavePix_panhador);
-                        cursor.moveToNext();
-                    } else {
-                        cursor.moveToNext();
-                    }
+                    cursor.moveToNext();
                 }
             } finally {
                 cursor.close();
